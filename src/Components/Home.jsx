@@ -1,17 +1,8 @@
-// import React, { useContext, useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import SearchBox from "./SearchBox";
 import Cards from "./Cards";
-// import { CoinContext } from "../Context/CoinContext";
 
 const Home = () => {
-
-  // const { coin, currency } = useContext(CoinContext);
-  // const [ displayCoin, setDisplayCoin ] = useState([]);
-
-  // useEffect(() => {
-  //   setDisplayCoin(coin)
-  // },[coin])
 
   return (
     <div className="flex flex-col items-center">
