@@ -32,7 +32,7 @@ const SearchBox = () => {
         onChange={InputHandler}
         required
       />
-      <button className="absolute right-1 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-[5.6vh] inline-flex items-center justify-center px-3 border-0 rounded-lg text-sm font-medium text-white bg-gradient-to-l from-blue-500 to-purple-600 shadow-lg hover:from-purple-500 hover:to-blue-600">
+      <button className="btn">
         Search
       </button>
     </form>

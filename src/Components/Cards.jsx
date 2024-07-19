@@ -1,25 +1,26 @@
+import { useContext } from "react";
 import React from "react";
 import { CoinContext } from "../Context/CoinContext";
-import { useContext, useState, useEffect } from "react";
+// import { useContext, useState, useEffect } from "react";
 
-const Cards = () => {
-  const { Coin, currency } = useContext(CoinContext);
-  const [displayCoin, setDisplayCoin] = useState([]);
+const Cards = ( {coindetail} ) => {
+  const { currency } = useContext(CoinContext);
+  // const [displayCoin, setDisplayCoin] = useState([]);
 
-  useEffect(() => {
-    setDisplayCoin(Coin);
-  }, [Coin]);
+  // useEffect(() => {
+  //   setDisplayCoin(Coin);
+  // }, [Coin]);
 
   // console.log(displayCoin.slice(0, 10));
 
   return (
-    <div className="my-12 w-[85.7vw]  bg-zinc-30  flex  gap-x-6 flex-wrap gap-y-6 ">
-      {displayCoin.slice(0, 24).map((item, index) => (
-        <div className="w-[20vw] h-auto pb-2 flex flex-col items-center rounded-3xl bg-gray-300 bg-opacity-40 backdrop-filter backdrop-blur-2xl text-black shadow-slate-600 shadow-lg pt-2 px-3 hover:scale-95 transition hover:shadow-xl hover:shadow-slate-950 duration-300 select-none ">
+    // <div className="my-12 w-[85.7vw]  bg-zinc-30  flex  gap-x-6 flex-wrap gap-y-6 ">
+      // {displayCoin.slice(0, 24).map((item, index) => (
+        <div className="w-[20vw] h-[53vh] pb-3 flex flex-col items-center rounded-3xl bg-gray-300 bg-opacity-40 backdrop-filter backdrop-blur-2xl text-black shadow-slate-600 shadow-lg pt-2 px-3 hover:scale-95 transition hover:shadow-xl hover:shadow-slate-950 duration-300 select-none ">
           {/*hover:shadow-2xl transition duration-200*/}
-          <img src={item.image} alt="" className="h-[14vh]" />
+          <img src={coindetail.image} alt="" className="h-[14vh]" />
           <h1 className="mt-2 mb-1 font-archivoBlack font-semibold text-2xl">
-            {item.name}
+            {coindetail.name}
           </h1>
 
           <hr className="w-full border-t-[1.4px] border-zinc-600 " />
@@ -27,47 +28,131 @@ const Cards = () => {
           <div className="flex flex-col py-2  font-lato font-medium">
             <h2>
               Current Price : {currency.symbol}
-              {item.current_price.toLocaleString()}
+              {coindetail.current_price.toLocaleString()}
             </h2>
             <h2>
               Market Cap : {currency.symbol}
-              {item.market_cap.toLocaleString()}
+              {coindetail.market_cap.toLocaleString()}
             </h2>
           </div>
 
           <hr className="w-full border-t-[1.4px] border-zinc-600 " />
 
           <h1 className="my-1 font-medium text-lg">24H Change</h1>
-          <div className="flex px-3 font-lato font-medium ">
+          <div className="flex px-3 font-lato font-medium gap-x-16 ">
             <h2>
               Market Cap :{" "}
+              <br />
               <span
                 className={
-                  item.market_cap_change_percentage_24h > 0
+                  coindetail.market_cap_change_percentage_24h > 0
                     ? "text-green-600"
                     : "text-red-600"
                 }
               >
-                {Math.floor(item.market_cap_change_percentage_24h * 100) / 100}%
+                {Math.floor(coindetail.market_cap_change_percentage_24h * 100) / 100}%
               </span>
             </h2>
             <h2>
               Price :{" "}
+              <br />
               <span
                 className={
-                  item.price_change_percentage_24h > 0
+                  coindetail.price_change_percentage_24h > 0
                     ? "text-green-600"
                     : "text-red-600"
                 }
               >
-                {Math.floor(item.price_change_percentage_24h * 100)}%
+                {Math.floor(coindetail.price_change_percentage_24h * 100)}%
               </span>
             </h2>
           </div>
         </div>
-      ))}
-    </div>
+      // ))}
+    // </div>
   );
 };
 
 export default Cards;
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import { CoinContext } from "../Context/CoinContext";
+// import { useContext, useState, useEffect } from "react";
+
+// const Cards = () => {
+//   const { Coin, currency } = useContext(CoinContext);
+//   const [displayCoin, setDisplayCoin] = useState([]);
+
+//   useEffect(() => {
+//     setDisplayCoin(Coin);
+//   }, [Coin]);
+
+//   // console.log(displayCoin.slice(0, 10));
+
+//   return (
+//     <div className="my-12 w-[85.7vw]  bg-zinc-30  flex  gap-x-6 flex-wrap gap-y-6 ">
+//       {displayCoin.slice(0, 24).map((item, index) => (
+//         <div className="w-[20vw] h-auto pb-2 flex flex-col items-center rounded-3xl bg-gray-300 bg-opacity-40 backdrop-filter backdrop-blur-2xl text-black shadow-slate-600 shadow-lg pt-2 px-3 hover:scale-95 transition hover:shadow-xl hover:shadow-slate-950 duration-300 select-none ">
+//           {/*hover:shadow-2xl transition duration-200*/}
+//           <img src={item.image} alt="" className="h-[14vh]" />
+//           <h1 className="mt-2 mb-1 font-archivoBlack font-semibold text-2xl">
+//             {item.name}
+//           </h1>
+
+//           <hr className="w-full border-t-[1.4px] border-zinc-600 " />
+
+//           <div className="flex flex-col py-2  font-lato font-medium">
+//             <h2>
+//               Current Price : {currency.symbol}
+//               {item.current_price.toLocaleString()}
+//             </h2>
+//             <h2>
+//               Market Cap : {currency.symbol}
+//               {item.market_cap.toLocaleString()}
+//             </h2>
+//           </div>
+
+//           <hr className="w-full border-t-[1.4px] border-zinc-600 " />
+
+//           <h1 className="my-1 font-medium text-lg">24H Change</h1>
+//           <div className="flex px-3 font-lato font-medium ">
+//             <h2>
+//               Market Cap :{" "}
+//               <span
+//                 className={
+//                   item.market_cap_change_percentage_24h > 0
+//                     ? "text-green-600"
+//                     : "text-red-600"
+//                 }
+//               >
+//                 {Math.floor(item.market_cap_change_percentage_24h * 100) / 100}%
+//               </span>
+//             </h2>
+//             <h2>
+//               Price :{" "}
+//               <span
+//                 className={
+//                   item.price_change_percentage_24h > 0
+//                     ? "text-green-600"
+//                     : "text-red-600"
+//                 }
+//               >
+//                 {Math.floor(item.price_change_percentage_24h * 100)}%
+//               </span>
+//             </h2>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Cards;
