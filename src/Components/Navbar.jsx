@@ -4,33 +4,34 @@ import { Link } from "react-router-dom";
 import { CoinContext } from "../Context/CoinContext";
 
 const Navbar = () => {
-
-  const { setcurrency } = useContext(CoinContext)
-  const currencyHandler = ( event ) => {
+  const { setcurrency } = useContext(CoinContext);
+  const currencyHandler = (event) => {
     switch (event.target.value) {
-      case "usd" :{
-        setcurrency({name: "usd", symbol: "$"})
+      case "usd": {
+        setcurrency({ name: "usd", symbol: "$" });
         break;
-      } 
-      case "eur" :{
-        setcurrency({name: "eur", symbol: "€"})
+      }
+      case "eur": {
+        setcurrency({ name: "eur", symbol: "€" });
         break;
-      } 
-      case "inr" :{
-        setcurrency({name: "inr", symbol: "₹"})
+      }
+      case "inr": {
+        setcurrency({ name: "inr", symbol: "₹" });
         break;
-      } 
+      }
       default : {
-        setcurrency({name: "usd", symbol: "$"})
+        setcurrency({ name: "usd", symbol: "$" });
         break;
       }
     }
-  }
-
+  };
 
   return (
-    <div className="h-[10vh] w-full border-b-2 flex border-zinc-500 items-center justify-between px-20 ">
-      <img className="w-[11vw]" src={logo} alt="" />
+    <div className="h-[10vh] w-full border-b-2 flex border-zinc-500 items-center justify-between px-20 fixed top-0 left-0 right-0 z-10 bg-gradient-custom ">
+      <Link to={`/`}>
+        {" "}
+        <img className="w-[11vw]" src={logo} alt="" />
+      </Link>
 
       <div className="flex gap-x-12 font-archivoBlack font-medium text-sm">
         <h1>Home</h1>
@@ -40,7 +41,10 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-x-3 ">
-        <select onChange={currencyHandler} className="block  mx-auto bg-zinc-300 border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-none sm:text-sm border-zinc-400 " >
+        <select
+          onChange={currencyHandler}
+          className="block  mx-auto bg-gradient-custom border rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-none sm:text-sm border-zinc-400 "
+        >
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
           <option value="inr">INR</option>

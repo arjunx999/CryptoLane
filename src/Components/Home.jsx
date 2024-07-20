@@ -33,7 +33,7 @@ const Home = () => {
 
     // Scroll down smoothly
     window.scrollTo({
-      top: 600,
+      top: 500,
       behavior: "smooth",
     });
   };
@@ -48,14 +48,14 @@ const Home = () => {
     setDisplayCoin(Coin);
   }, [Coin]);
 
-  // console.log(displayCoin);
+  console.log(displayCoin);
 
   return (
     <div className="flex flex-col items-center">
       <Navbar />
 
       <div className="w-[80%] h-[90vh]   mx-auto">
-        <div className="flex w-[80%] h-[90%] items-center justify-center flex-col pt-[18%] font-lato mx-auto ">
+        <div className="flex w-[80%] h-[90%] items-center justify-center mt-16 flex-col pt-[18%] font-lato mx-auto ">
           <h1 className="text-4xl font-semibold  mb-3">
             {" "}
             Welcome to CryptoLane
@@ -108,7 +108,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="my-12 w-[85.7vw]  bg-zinc-30  flex  gap-x-6 flex-wrap gap-y-6 ">
+      <div className="my-12 w-[85.7vw]  bg-zinc-30 mt-24 flex  gap-x-6 flex-wrap gap-y-6 ">
         {displayCoin.slice(0, 24).map((item, index) => (
           <Cards coindetail={item} key={index} />
         ))}
